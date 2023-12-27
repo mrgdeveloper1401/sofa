@@ -32,7 +32,10 @@ ALLOWED_HOSTS = []
 CREATEAPP = [
     'mptt',
     'accounts.apps.AccountsConfig',
-    'categories.apps.CategoriesConfig'
+    'categories.apps.CategoriesConfig',
+    'products.apps.ProductsConfig',
+    'images.apps.ImagesConfig',
+    'videos.apps.VideosConfig',
 ]
 INSTALLED_APPS = [
     'django.contrib.admin',

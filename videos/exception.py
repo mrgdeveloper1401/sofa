@@ -1,0 +1,2 @@
+class Deupicated(Exception):
+    pass
