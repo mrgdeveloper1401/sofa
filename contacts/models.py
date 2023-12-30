@@ -42,3 +42,17 @@ class CallMe(Create, Update):
         db_table = 'call_me'
         verbose_name = 'تلفن همراه'
         verbose_name_plural = 'تلفن همراه'
+
+
+class Services(Create, Update):
+    title = models.CharField(_('عنوان'), max_length=100)
+    description = models.TextField(_('توضیحات'))
+    is_active = models.BooleanField(_('فعال'), default=True)
+    
+    def __str__(self) -> str:
+        return self.title
+    
+    class Meta:
+        db_table ='services'
+        verbose_name = 'خدمات'
+        verbose_name_plural = 'خدمات'

@@ -1,3 +1,4 @@
+from typing import Any
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from core.models import Create, Update
@@ -9,11 +10,12 @@ class Product(Create, Update):
     fa_name = models.CharField(_('نام فارسی'), max_length=155)
     slug = models.SlugField(_('اسلاگ'), max_length=155, unique=True, allow_unicode=True)
     description = models.TextField(_('توضیح محصول'), blank=True, null=True)
-    image = models.ForeignKey('images.Images', on_delete=models.PROTECT, related_name='product_images')
     is_active = models.BooleanField(_('فعال'), default=True)
+    is_stock = models.BooleanField(_('ارسال دارد'), default=True)
     video = models.ForeignKey('videos.Movies', on_delete=models.PROTECT, related_name='product_videos', blank=True, null=True)
     category = models.ForeignKey('categories.Category', on_delete=models.PROTECT, related_name='product_categories')
     brand = models.ForeignKey('categories.Brand', on_delete=models.PROTECT, related_name='product_brands')
+    
     objects = ActiveManager()
 
     def __str__(self) -> str:
@@ -91,3 +93,21 @@ class AttributeValue(Create, Update):
         verbose_name = _('attribute value')
         verbose_name_plural = _('attribute values')
         db_table = 'attribute_values'
+
+
+class ProductImage(Create, Update):
+    image = models.ForeignKey('images.Images', on_delete=models.PROTECT, related_name='images')
+    product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='product_images')
+    disply_order = models.PositiveIntegerField(default=0)
+    
+    def delete(self, using: Any = ..., keep_parents: bool = ...) -> tuple[int, dict[str, int]]:
+        super().delete(using, keep_parents)
+        for index, img in enumerate(self.product.images.all()):
+            img.display_order = index
+            img.save()
+
+    class Meta:
+        # ordering = '-create_at'
+        db_table = 'product_images'
+        verbose_name = 'product image'
+        verbose_name_plural = 'product images'
