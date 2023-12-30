@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir='rtl'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static "css/swiper-bundle.min.css" %}">
+    {% block title %}{% endblock title %}
+</head>
+<body>
+    {% include "components/header.html" %}
+    {% block content %}{% endblock content %}
+    {% include "components/footer.html" %}
+    
+    <script src="{% static "js/swiper-bundle.min.js" %}"></script>
+    <script src="{% static "js/main.js" %}"></script>
+</body>
+</html>
