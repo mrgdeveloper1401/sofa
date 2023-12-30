@@ -5,7 +5,6 @@
 {% endblock title %}
 
 {% block content %}
-<body class="font-YekanBakh-Regular text-sm bg-[#f5f1e4]">
     <div class="min-h-screen py-6 flex flex-col justify-center sm:py-12">
         <div class="relative py-3 sm:max-w-sm sm:mx-auto">
           <div
@@ -25,12 +24,12 @@
                       <input type="submit" class="btn bg-stone-800 w-full hover:bg-stone-900 text-white rounded-full text-sm" value="ورود به حساب کاربری">
                       <p class="mt-6 text-xs text-gray-600 text-center leading-8">
                           رمز عبور خود را فراموش کرده اید؟ 
-                          <a href="lost-password.html" class="border-b border-gray-500 border-dotted">
+                          <a href="{% url "accounts:lost_password" %}" class="border-b border-gray-500 border-dotted">
                               کلیک کنید.
                           </a>
                           <br>
                           اگر اکانت ندارید
-                          <a href="sign-up.html" class="border-b border-gray-500 border-dotted">
+                          <a href="{% url "accounts:signup" %}" class="border-b border-gray-500 border-dotted">
                               ثبت نام کنید
                           </a>
                       </p>

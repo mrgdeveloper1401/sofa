@@ -17,9 +17,9 @@
                 <div class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-2 text-right md:text-center">
                     <h3 class="font-IRANSansWeb_Bold text-white mb-4 text-base">دسترسی سریع</h3>
                     <ul>
-                        <li><a href="index.html">صفحه اصلی</a></li>
+                        <li><a href="{% url "products:home" %}">صفحه اصلی</a></li>
                         <li><a href="about-us.html">درباره ما</a></li>
-                        <li><a href="contact-us.html">تماس با ما</a></li>
+                        <li><a href="{% url "contact_us:contact_us" %}">تماس با ما</a></li>
                         <li><a href="project.html">پروژه ها</a></li>
                         <li><a href="services.html">خدمات ما</a></li>
                     </ul>
@@ -44,4 +44,3 @@
             </div>
         </div>
     </footer>
-</body>

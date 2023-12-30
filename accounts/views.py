@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 from .models import Users
-from .form import LoginForm
+from .form import LoginForm, SignupForm, LostPasswordForm
 
 
 class LoginView(View):
@@ -13,8 +13,16 @@ class LoginView(View):
 
 
 class SignUpview(View):
-    form_class = ''
+    form_class = SignupForm
     template_name = 'accounts/signup.html'
+    def get(self, request):
+        form = self.form_class()
+        return render(request, self.template_name, {'form': form})
+
+
+class LostPasswordView(View):
+    form_class = LostPasswordForm
+    template_name = 'accounts/lost_password.html'
     def get(self, request):
         form = self.form_class()
         return render(request, self.template_name, {'form': form})

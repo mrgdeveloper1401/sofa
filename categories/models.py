@@ -20,3 +20,17 @@ class Category(Create, Update, MPTTModel):
         verbose_name = _('category')
         verbose_name_plural = _('categories')
         db_table = 'category'
+
+
+class Brand(Create, Update):
+    brand_name = models.CharField(_('نام برند'), max_length=155, db_index=True, unique=True, null=True, blank=True)
+    category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name='brand_categories')
+    is_active = models.BooleanField(_('فعال'), default=True)
+    
+    def __str__(self) -> str:
+        return f'{self.brand_name} {self.category}'
+    
+    class Meta:
+        verbose_name = _('brand')
+        verbose_name_plural = _('brands')
+        db_table = 'brands'

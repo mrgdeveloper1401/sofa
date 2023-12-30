@@ -31,7 +31,7 @@
                             </svg>
                           </label> 
                         </div> 
-                        <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="index.html">صفحه اصلی</a></li>
+                        <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="{% url "products:home" %}">صفحه اصلی</a></li>
                         <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="services.html">خدمات</a></li>
                         <li><details>
                             <summary><a href="project.html">پروژه ها</a></summary>
@@ -63,7 +63,7 @@
             </div>
             <div class="hidden lg:block">
                 <ul class="flex menu lg:menu-horizontal">
-                    <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="index.html">صفحه اصلی</a></li>
+                    <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="{% url "products:home" %}">صفحه اصلی</a></li>
                     <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="services.html">خدمات</a></li>
                     <li><details>
                         <summary><a href="project.html">پروژه ها</a></summary>
@@ -84,12 +84,12 @@
                     <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="faq.html">سوالات متداول</a></li>
                     <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="blog.html">وبلاگ</a></li>
                     <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="about-us.html">درباره ما</a></li>
-                    <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="contact-us.html">تماس با ما</a></li>
+                    <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="{% url "contact_us:contact_us" %}">تماس با ما</a></li>
                 </ul>
             </div>
           </div>
             <div class="border bg-stone-900 text-orange-200 hover:bg-orange-200 hover:text-stone-900 duration-300 rounded-full">
-                <a href="login.html" class="flex py-2.5 px-7 rounded-full font-YekanBakh-Regular">ورود | ثبت نام</a>
+                <a href="{% url "accounts:login" %}" class="flex py-2.5 px-7 rounded-full font-YekanBakh-Regular">ورود | ثبت نام</a>
             </div>
     
         </div>

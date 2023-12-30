@@ -13,14 +13,22 @@ class AttributeInline(admin.TabularInline):
 
 
 class OptionValueInline(admin.TabularInline):
+    model = OptionValue
+    extra = 0
+
+
+class AttributeValueInline(admin.TabularInline):
     model = AttributeValue
     extra = 0
 
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    pass
-
+    list_display = ('en_name', 'category', 'is_active')
+    prepopulated_fields = {'slug': ('en_name',)}
+    list_per_page = 20
+    search_fields = ('en_name', 'fa_name', 'create_at', 'update_at')
+    inlines = (AttributeValueInline, OptionValueInline)
 
 @admin.register(Option)
 class OptionAdmin(admin.ModelAdmin):

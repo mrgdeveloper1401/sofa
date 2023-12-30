@@ -13,7 +13,7 @@ class Product(Create, Update):
     is_active = models.BooleanField(_('فعال'), default=True)
     video = models.ForeignKey('videos.Movies', on_delete=models.PROTECT, related_name='product_videos', blank=True, null=True)
     category = models.ForeignKey('categories.Category', on_delete=models.PROTECT, related_name='product_categories')
-
+    brand = models.ForeignKey('categories.Brand', on_delete=models.PROTECT, related_name='product_brands')
     objects = ActiveManager()
 
     def __str__(self) -> str:
@@ -26,7 +26,7 @@ class Product(Create, Update):
 
 
 class Option(Create, Update):
-    option_name = models.CharField(_('آپشن'), max_length=155)
+    option_name = models.CharField(_('آپشن'), max_length=155, unique=True)
     product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='product_option')
     is_active = models.BooleanField(_('فعال'), default=True)
 
