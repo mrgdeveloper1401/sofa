@@ -23,37 +23,6 @@
                   </div> 
                   <div class="drawer-side">
                     <label for="my-drawer-4" class="drawer-overlay"></label>
-                    <ul class="menu p-4 w-80 h-full bg-base-200 text-base-content">
-                      <div class="drawer-content text-left">
-                          <label for="my-drawer-4" class="swap swap-rotate drawer-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                          </label> 
-                        </div> 
-                        <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="{% url "products:home" %}">صفحه اصلی</a></li>
-                        <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="services.html">خدمات</a></li>
-                        <li><details>
-                            <summary><a href="project.html">پروژه ها</a></summary>
-                            <ul class="p-2 z-10 w-48 bg-[#f5f1e4] m-0">
-                              <li><a href="blog-2.html">وبلاگ دمو دوم</a></li>
-                              <li><a>جزئیات پروژه</a></li>
-                              <li>
-                                <details>
-                                  <summary>زیر منوی اول</summary>
-                                  <ul>
-                                    <li><a>آیتم شماره یک</a></li>
-                                    <li><a>آیتم شماره دوم</a></li>
-                                  </ul>
-                                </details>
-                              </li>
-                            </ul>
-                        </details></li>
-                        <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="faq.html">سوالات متداول</a></li>
-                        <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="blog.html">وبلاگ</a></li>
-                        <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="about-us.html">درباره ما</a></li>
-                        <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="{% url "contact_us:contact_us" %}">تماس با ما</a></li>
-                    </ul>
                   </div>
               </div>
         </div>
@@ -62,30 +31,8 @@
                 <a href="{% url "products:home" %}"><img src="{% static "images/logo_site.png" %}" alt="logo"></a>
             </div>
             <div class="hidden lg:block">
-                <ul class="flex menu lg:menu-horizontal">
-                    <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="{% url "products:home" %}">صفحه اصلی</a></li>
-                    <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="services.html">خدمات</a></li>
-                    <li><details>
-                        <summary><a href="project.html">پروژه ها</a></summary>
-                        <ul class="p-2 z-10 w-48 bg-[#f5f1e4] m-0">
-                          <li><a href="blog-2.html">وبلاگ دمو دوم</a></li>
-                          <li><a>جزئیات پروژه</a></li>
-                          <li>
-                            <details>
-                              <summary>زیر منوی اول</summary>
-                              <ul>
-                                <li><a>آیتم شماره یک</a></li>
-                                <li><a>آیتم شماره دوم</a></li>
-                              </ul>
-                            </details>
-                          </li>
-                        </ul>
-                    </details></li>
-                    <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="faq.html">سوالات متداول</a></li>
-                    <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="blog.html">وبلاگ</a></li>
-                    <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="about-us.html">درباره ما</a></li>
-                    <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="{% url "contact_us:contact_us" %}">تماس با ما</a></li>
-                </ul>
+              {% comment %} TODO categories {% endcomment %}
+              {% comment %} {% include "" %} {% endcomment %}
             </div>
           </div>
             <div class="border bg-stone-900 text-orange-200 hover:bg-orange-200 hover:text-stone-900 duration-300 rounded-full">

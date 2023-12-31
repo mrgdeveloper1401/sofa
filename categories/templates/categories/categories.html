@@ -1,0 +1,30 @@
+{% extends "base/extends.html" %}
+
+{% block ex_content %}
+
+    {% for c in categories %}
+    <ul class="flex menu lg:menu-horizontal">
+        <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="{% url "products:home" %}">صفحه اصلی</a></li>
+        <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="{% url "contact_us:services" %}">خدمات</a></li>
+        <li><details>
+            <summary><a href="project.html">دسته بندی ها</a></summary>
+            <ul class="p-2 z-10 w-48 bg-[#f5f1e4] m-0">
+            <li><a> پروژه</a></li>
+            <li>
+                <details>
+                <summary>زیر منوی اول</summary>
+                <ul>
+                    <li><a>آیتم شماره یک</a></li>
+                </ul>
+                </details>
+            </li>
+            </ul>
+        </details></li>
+        <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="faq.html">سوالات متداول</a></li>
+        <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="blog.html">وبلاگ</a></li>
+        <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="about-us.html">درباره ما</a></li>
+        <li><a class="hover:border-b hover:border-orange-200 pb-1 duration-300" href="{% url "contact_us:contact_us" %}">تماس با ما</a></li>
+    </ul>
+    {% endfor %}
+
+{% endblock ex_content %}

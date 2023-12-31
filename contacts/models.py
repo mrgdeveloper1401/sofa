@@ -56,3 +56,17 @@ class Services(Create, Update):
         db_table ='services'
         verbose_name = 'خدمات'
         verbose_name_plural = 'خدمات'
+
+
+class AboutUs(Create, Update):
+    title = models.CharField(_('عنوان'), max_length=100)
+    description = models.TextField(_('توضیحات'))
+    is_active = models.BooleanField(_('فعال'), default=True)
+    
+    def __str__(self) -> str:
+        return self.title
+    
+    class Meta:
+        db_table ='about_us'
+        verbose_name = 'درباره ما'
+        verbose_name_plural = 'درباره ما'

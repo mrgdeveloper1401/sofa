@@ -18,20 +18,16 @@
                     <h3 class="font-IRANSansWeb_Bold text-white mb-4 text-base">دسترسی سریع</h3>
                     <ul>
                         <li><a href="{% url "products:home" %}">صفحه اصلی</a></li>
-                        <li><a href="about-us.html">درباره ما</a></li>
+                        <li><a href="{% url "contact_us:about_us" %}">درباره ما</a></li>
                         <li><a href="{% url "contact_us:contact_us" %}">تماس با ما</a></li>
-                        <li><a href="project.html">پروژه ها</a></li>
-                        <li><a href="services.html">خدمات ما</a></li>
+                        <li><a href="{% url "contact_us:services" %}">خدمات ما</a></li>
                     </ul>
                 </div>
                 <div class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-2 text-right md:text-center">
                     <h3 class="font-IRANSansWeb_Bold text-white mb-4 text-base">خدمات شرکت</h3>
                     <ul>
-                        <li><a href="single-page.html">جزئیات وبلاگ</a></li>
-                        <li><a href="single-project.html">جزئیات پروژه</a></li>
-                        <li><a href="manager.html">مدیران</a></li>
+                        {% comment %} <li><a href="{% url "blog:" %}">وبلاگ</a></li> {% endcomment %}
                         <li><a href="faq.html">سوالات متداول</a></li>
-                        <li><a href="404.html">404</a></li>
                     </ul>
                 </div>
                 <div class="col-span-12 md:col-span-4 lg:col-span-3">

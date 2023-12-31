@@ -2,21 +2,21 @@ from django.contrib import admin
 from .models import Job, Post, PostTitle, PostDescription, PostImage, CommentPost
 
 
-class jobInline(admin.TabularInline):
+class jobInline(admin.StackedInline):
     model = Job
     extra = 0
 
-class PostTitleInline(admin.TabularInline):
+class PostTitleInline(admin.StackedInline):
     model = PostTitle
     extra = 0
 
 
-class PostDescriptionInline(admin.TabularInline):
+class PostDescriptionInline(admin.StackedInline):
     model = PostDescription
     extra = 0
 
 
-class PostImageInline(admin.TabularInline):
+class PostImageInline(admin.StackedInline):
     model = PostImage
     extra = 0
 
