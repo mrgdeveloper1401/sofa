@@ -38,6 +38,7 @@ CREATEAPP = [
     'videos.apps.VideosConfig',
     'comments.apps.CommentsConfig',
     'contacts.apps.ContactsConfig',
+    'blog.apps.BlogConfig',
 ]
 INSTALLED_APPS = [
     'django.contrib.admin',

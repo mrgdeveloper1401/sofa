@@ -14,7 +14,7 @@ class Users(AbstractBaseUser, PermissionsMixin, Create, Update):
     is_active = models.BooleanField(_('فعال'), default=False)
     is_staff = models.BooleanField(_('مدیر'), default=False)
     birth_day = models.DateField(_('تاریخ تولد'), blank=True, null=True)
-    
+    image = models.ForeignKey('images.Images', on_delete=models.PROTECT, null=True, blank=True, related_name='user_image')
     objects = UserManagers()
 
     EMAIL_FIELD = "email"

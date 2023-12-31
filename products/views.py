@@ -15,3 +15,10 @@ class ProductImageSliderView(View):
         produt = Product.objects.aget(pk=kwargs['pk'])
         product_image = produt.product_images.all()
         return render(request, self.template_name, {'product_image': product_image})
+
+
+class ProductImageView(View):
+    template_name = 'products/product_image.html'
+    def get(self, request, *args, **kwargs):
+        product = Product.objects.get(pk=kwargs['pk'])
+        return render(request, self.template_name, {'product': product})
