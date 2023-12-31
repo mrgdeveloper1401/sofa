@@ -3,7 +3,7 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, AbstractUser
 from django.core.mail import send_mail
 from core.models import Create, Update
-from .manaers import UserManagers
+from .manaers import UserManagers, ActiveModel
 
 
 class Users(AbstractBaseUser, PermissionsMixin, Create, Update):
@@ -15,6 +15,7 @@ class Users(AbstractBaseUser, PermissionsMixin, Create, Update):
     is_staff = models.BooleanField(_('مدیر'), default=False)
     birth_day = models.DateField(_('تاریخ تولد'), blank=True, null=True)
     image = models.ForeignKey('images.Images', on_delete=models.PROTECT, null=True, blank=True, related_name='user_image')
+    
     objects = UserManagers()
 
     EMAIL_FIELD = "email"
@@ -44,3 +45,21 @@ class Users(AbstractBaseUser, PermissionsMixin, Create, Update):
     def email_user(self, subject, message, from_email=None, **kwargs):
         """Send an email to this user."""
         send_mail(subject, message, from_email, [self.email], **kwargs)
+
+
+
+class Job(Create, Update):
+    job_name = models.CharField(_('نام شغل'), unique=True, max_length=100)
+    job_description = models.TextField(_('توضیحات شغل'), blank=True, null=True)
+    user = models.ForeignKey(Users, on_delete=models.PROTECT, related_name='job_user')
+    is_active = models.BooleanField(_('فعال'), default=True)
+    
+    # objects = ActiveModel()
+    
+    def __str__(self) -> str:
+        return self.job_name
+    
+    class Meta:
+        db_table = 'job'
+        verbose_name = 'Job'
+        verbose_name_plural = 'Jobs'

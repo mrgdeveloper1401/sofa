@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ContactUs, AddressMe, CallMe, Services, AboutUs
+from .models import ContactUs, AddressMe, CallMe, Services, AboutUs, Faq
 
 
 class CallMeInline(admin.TabularInline):
@@ -44,4 +44,13 @@ class AboutUsAdmin(admin.ModelAdmin):
     list_filter = ('create_at', 'update_at', 'is_active')
     list_per_page = 20
     search_fields = ('title',)
+    list_editable = ('is_active',)
+
+
+@admin.register(Faq)
+class FaqAdmin(admin.ModelAdmin):
+    list_display = ('question', 'answer', 'create_at', 'update_at', 'is_active')
+    list_filter = ('create_at', 'update_at', 'is_active')
+    search_fields = ('question', 'answer')
+    list_per_page = 20
     list_editable = ('is_active',)

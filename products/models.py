@@ -16,7 +16,7 @@ class Product(Create, Update):
     category = models.ForeignKey('categories.Category', on_delete=models.PROTECT, related_name='product_categories')
     brand = models.ForeignKey('categories.Brand', on_delete=models.PROTECT, related_name='product_brands')
     
-    objects = ActiveManager()
+    # objects = ActiveManager()
 
     def __str__(self) -> str:
         return self.en_name
@@ -32,7 +32,7 @@ class Option(Create, Update):
     product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='product_option')
     is_active = models.BooleanField(_('فعال'), default=True)
 
-    objects = ActiveManager()
+    # objects = ActiveManager()
 
     def __str__(self) -> str:
         return self.option_name
@@ -49,7 +49,7 @@ class OptionValue(Create, Update):
     product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='product_option_value')
     is_active = models.BooleanField(_('فعال'), default=True)
 
-    objects = ActiveManager()
+    # objects = ActiveManager()
 
     def __str__(self) -> str:
         return self.option_value
@@ -65,7 +65,7 @@ class Attribute(Create, Update):
     attribute_name = models.CharField(_('ویژگی'), max_length=155)
     is_active = models.BooleanField(_('فعال'), default=True)
 
-    objects = ActiveManager()
+    # objects = ActiveManager()
 
     def __str__(self) -> str:
         return self.attribute_name
@@ -84,7 +84,7 @@ class AttributeValue(Create, Update):
     product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='product_attribute_value')
     is_active = models.BooleanField(_('فعال'), default=True)
 
-    objects = ActiveManager()
+    # objects = ActiveManager()
 
     def __str__(self) -> str:
         return self.attribute_value

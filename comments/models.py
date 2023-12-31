@@ -11,7 +11,7 @@ class Comments(Create, Update):
     text = models.TextField(_('نظر'))
     is_active = models.BooleanField(_('فعال'), default=False)
     
-    objects = ActiveComments()
+    # objects = ActiveComments()
     
     def __str__(self) -> str:
         return self.title
@@ -26,7 +26,7 @@ class Rate(Create, Update):
     comment = models.ForeignKey(Comments, on_delete=models.PROTECT, related_name='rate_comment')
     score = models.PositiveSmallIntegerField(_('نمره'), blank=True, null=True)
 
-    objects = ActiveComments()
+    # objects = ActiveComments()
 
     def __str__(self) -> str:
         return f'{self.comment.title} -- {self.score}'
@@ -43,7 +43,7 @@ class Questions(Create, Update):
     text = models.TextField(_('متن سوال'))
     is_active = models.BooleanField(_('فعال'), default=False)
 
-    objects = ActiveComments()
+    # objects = ActiveComments()
 
     def __str__(self) -> str:
         return self.text
@@ -61,7 +61,7 @@ class Answer(Create, Update):
     text = models.TextField(_('پاسخ سوال'))
     is_active = models.BooleanField(_('فعال'), default=False)
 
-    objects = ActiveComments()
+    # objects = ActiveComments()
 
     def __str__(self) -> str:
         return self.text

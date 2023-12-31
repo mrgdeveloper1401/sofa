@@ -11,7 +11,7 @@ class Category(Create, Update, MPTTModel):
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
     is_active = models.BooleanField(_('فعال'), default=True)
     
-    objects = PublicCategory()
+    # objects = PublicCategory()
     
     def __str__(self) -> str:
         return self.title

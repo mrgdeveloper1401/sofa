@@ -28,11 +28,10 @@
         </div>
           <div class="flex items-center gap-8">
             <div>
-                <a href="{% url "products:home" %}"><img src="{% static "images/logo_site.png" %}" alt="logo"></a>
+                {% comment %} <a href="{% url "products:home" %}"><img src="{% static "images/logo_site.png" %}" alt="logo"></a> {% endcomment %}
             </div>
             <div class="hidden lg:block">
-              {% comment %} TODO categories {% endcomment %}
-              {% comment %} {% include "" %} {% endcomment %}
+              {% include "categories/categories.html" %}
             </div>
           </div>
             <div class="border bg-stone-900 text-orange-200 hover:bg-orange-200 hover:text-stone-900 duration-300 rounded-full">

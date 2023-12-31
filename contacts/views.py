@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import View
-from .models import ContactUs, AddressMe, CallMe, Services, AboutUs
+from .models import ContactUs, AddressMe, CallMe, Services, AboutUs, Faq
 
 
 class ContactView(View):
@@ -19,3 +19,9 @@ class AboutUsView(View):
     def get(self, request):
         about_us = AboutUs.objects.all()
         return render(request, 'contacts/about_us.html', {'about_us': about_us})
+    
+
+class FaqView(View):
+    def get(self, request):
+        faq = Faq.objects.all()
+        return render(request, 'contacts/faq.html', {'faq': faq})

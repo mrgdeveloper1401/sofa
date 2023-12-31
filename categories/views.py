@@ -6,4 +6,4 @@ from .models import Category
 class CategoryView(View):
     def get(self, request):
         categories = Category.objects.all()
-        return render(request, 'contacts/category.html', {'categories': categories})
+        return render(request, 'categories/categories.html', {'categories': categories})

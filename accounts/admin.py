@@ -1,11 +1,25 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import gettext_lazy as _
-from .models import Users
+from .models import Users, Job
+
+
+class jobInline(admin.StackedInline):
+    model = Job
+    extra = 0
+
+@admin.register(Job)
+class JobAdmin(admin.ModelAdmin):
+    list_filter = ('is_active', 'create_at', 'update_at')
+    list_display = ('job_name', 'is_active')
+    list_per_page = 20
+    raw_id_fields = ('user',)
+    list_editable = ('is_active',)
 
 
 @admin.register(Users)
 class UserAdmin(BaseUserAdmin):
+    inlines = (jobInline,)
     fieldsets = (
         (None, {"fields": ("mobile_phone", "password")}),
         (_("Personal info"), {"fields": ("first_name", "last_name", "email")}),

@@ -11,7 +11,7 @@
         <div class="container mx-auto max-w-screen-xl">
             <div class="grid grid-cols-12 gap-4 leading-8">
                 <div class="col-span-12 lg:col-span-5">
-                    <img class="mb-4" src="{% static "images/logo-footer.png" %}" alt="">
+                    {% comment %} <img class="mb-4" src="{% static "images/logo-footer.png" %}" alt=""> {% endcomment %}
                     <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته حال و آینده است.</p>
                 </div>
                 <div class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-2 text-right md:text-center">
@@ -24,14 +24,14 @@
                     </ul>
                 </div>
                 <div class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-2 text-right md:text-center">
-                    <h3 class="font-IRANSansWeb_Bold text-white mb-4 text-base">خدمات شرکت</h3>
+                    <h3 class="font-IRANSansWeb_Bold text-white mb-4 text-base">خدمات</h3>
                     <ul>
-                        {% comment %} <li><a href="{% url "blog:" %}">وبلاگ</a></li> {% endcomment %}
-                        <li><a href="faq.html">سوالات متداول</a></li>
+                        <li><a href="{% url "blog:all_posts" %}">وبلاگ</a></li>
+                        <li><a href="{% url "contact_us:faq" %}">سوالات متداول</a></li>
+                        {% comment %} <li><a href="{% url "contact_us:faq" %}">پروفایل همراه</a></li> {% endcomment %}
                     </ul>
                 </div>
                 <div class="col-span-12 md:col-span-4 lg:col-span-3">
-                    <h3 class="font-IRANSansWeb_Bold text-white mb-4 text-base">عضویت در خبرنامه</h3>
                     <div class="flex items-center">
                       <img src="{% static "images/enamad_logo.png" %}" alt="">
                       <img src="{% static "images/samandehi_logo.png" %}" alt="">

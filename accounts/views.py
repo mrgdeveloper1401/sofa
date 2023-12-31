@@ -26,3 +26,10 @@ class LostPasswordView(View):
     def get(self, request):
         form = self.form_class()
         return render(request, self.template_name, {'form': form})
+
+
+class ProfileUserView(View):
+    template_name = 'accounts/profile.html'
+    def get(self, request, *args, **kwargs):
+        user = Users.objects.get(pk=kwargs['pk'])
+        return render(request, self.template_name, {'user': user})
