@@ -16,8 +16,8 @@ class ContactUs(Create, Update):
     
     class Meta:
         db_table = 'contact_us'
-        verbose_name = 'پیام'
-        verbose_name_plural = 'پیام ها'
+        verbose_name = 'تماس با ما'
+        verbose_name_plural = 'تماس با ما'
 
 
 class AddressMe(Create, Update):

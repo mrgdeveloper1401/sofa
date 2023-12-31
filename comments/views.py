@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import View
-from .models import ActiveComments, Answer, Comments, Questions, Rate
+from .models import ActiveComments, Answer, Comments, Questions
 
 
 class ProductCommentsView(View):

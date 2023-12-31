@@ -11,6 +11,13 @@ class Comments(Create, Update):
     text = models.TextField(_('نظر'))
     is_active = models.BooleanField(_('فعال'), default=False)
     
+    class Rate(models.TextChoices):
+        one = '1', _('1')
+        two = '2', _('2')
+        three = '3', _('3')
+        four = '4', _('4')
+        five = '5', _('5')
+    rate_choose = models.CharField(_('نمره'), choices=Rate.choices, max_length=6)
     # objects = ActiveComments()
     
     def __str__(self) -> str:
@@ -20,21 +27,6 @@ class Comments(Create, Update):
         verbose_name = _('نظرات')
         verbose_name_plural = _('نظرات')
         db_table = 'comments'
-
-
-class Rate(Create, Update):
-    comment = models.ForeignKey(Comments, on_delete=models.PROTECT, related_name='rate_comment')
-    score = models.PositiveSmallIntegerField(_('نمره'), blank=True, null=True)
-
-    # objects = ActiveComments()
-
-    def __str__(self) -> str:
-        return f'{self.comment.title} -- {self.score}'
-    
-    class Meta:
-        verbose_name = _('نمره')
-        verbose_name_plural = _('نمرها')
-        db_table = 'rate'
 
 
 class Questions(Create, Update):

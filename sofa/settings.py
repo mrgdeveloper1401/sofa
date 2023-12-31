@@ -39,6 +39,7 @@ CREATEAPP = [
     'comments.apps.CommentsConfig',
     'contacts.apps.ContactsConfig',
     'blog.apps.BlogConfig',
+    'inventory.apps.InventoryConfig',
 ]
 INSTALLED_APPS = [
     'django.contrib.admin',
